@@ -12,8 +12,6 @@ FROM quay.io/hummingbird/core-runtime:latest
 COPY --from=builder /headscale /bin/headscale
 COPY --from=builder /var/run/headscale /var/run/headscale
 
-USER 1001:1001
-RUN mkdir /var/run/headscale
 EXPOSE 8080/tcp 40000/tcp
 ENTRYPOINT ["/bin/headscale"]
 CMD ["serve"]
