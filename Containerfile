@@ -10,4 +10,5 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o /headscale ./cmd/headscale
 FROM quay.io/hummingbird/core-runtime:latest
 COPY --from=builder /headscale /bin/headscale
 EXPOSE 8080/tcp 40000/tcp
-ENTRYPOINT ["/bin/headscale", "--"]
+ENTRYPOINT ["/bin/headscale"]
+CMD ["serve"]
