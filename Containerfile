@@ -9,6 +9,8 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o /headscale ./cmd/headscale
 # Runtime stage: use minimal base image for the compiled binary
 FROM quay.io/hummingbird/core-runtime:latest
 COPY --from=builder /headscale /bin/headscale
+USER 1001:1001
+RUN mkdir /var/run/headscale
 EXPOSE 8080/tcp 40000/tcp
 ENTRYPOINT ["/bin/headscale"]
 CMD ["serve"]
