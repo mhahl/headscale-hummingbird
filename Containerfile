@@ -2,7 +2,7 @@
 FROM quay.io/hummingbird/go:latest-builder AS builder
 RUN dnf install -y less jq sqlite3 bind-utils git
 #todo(mhahl) figure out why ADD doesnt work.
-RUN git clone https://github.com/juanfont/headscale -b v0.27.1 /src/
+RUN git clone https://github.com/juanfont/headscale -b 0.27.2-rc.1 /src/
 WORKDIR /src
 RUN go mod download
 RUN CGO_ENABLED=0 GOOS=linux go build -o /headscale ./cmd/headscale
