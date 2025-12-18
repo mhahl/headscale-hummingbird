@@ -12,7 +12,7 @@ oc apply -f build-headscale-container.yaml -n sigiant-quay
 
 Create a new `PipelineRun` the image should be available at
 
-* `quay.sigaint.au/sigaint/headscale:v0.27.1-hummingbird`
+* `quay.sigaint.au/sigaint/headscale:v0.28.0-beta.1-hummingbird`
 
 # Notes
 * You must mount in:
@@ -26,7 +26,7 @@ For example in your `compose.yaml`
 version: "3.0"
 services:
   headscale:
-    image:  quay.sigaint.au/sigaint/headscale:v0.27.1-hummingbird
+    image:  quay.sigaint.au/sigaint/headscale:v0.28.0-beta.1-hummingbird
     container_name: headscale
     network_mode: host
     pull_policy: always
